@@ -1,0 +1,44 @@
+.container {
+  padding: 1% 5%;
+
+  .custom-collapse {
+    border: none;
+    background: linear-gradient(135deg, #ffffff, #cfd7db) !important;
+
+    .ant-collapse-header {
+      background-color: white;
+      padding: 16px;
+      font-size: large;
+      font-weight: 600;
+      color: #333;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .ant-collapse-item-active {
+      .ant-collapse-header,
+      .ant-collapse-content .ant-collapse-content-box {
+        background-color: transparent;
+        border-radius: 2px;
+      }
+    }
+
+    .ant-collapse-item-active .ant-collapse-header {
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .ant-collapse-header:hover {
+      background-color: transparent;
+    }
+
+    .ant-collapse-content-box {
+      background-color: white;
+      padding: 24px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
