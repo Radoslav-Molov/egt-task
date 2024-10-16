@@ -16,7 +16,7 @@ function UserPosts() {
   const usersState = useSelector(
     (state: ReduxState) => state.users.usersResponse
   );
-  const currentUser = usersState.find((user) => user.id === Number(userId));
+  const currentUser = usersState?.find((user) => user.id === Number(userId));
 
   React.useEffect(() => {
     const fetchUserPosts = async () => {

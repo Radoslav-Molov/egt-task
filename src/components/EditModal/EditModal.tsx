@@ -47,12 +47,15 @@ interface EditModalProps {
 }
 
 const EditModal = (props: EditModalProps) => {
+  const [editedUser, setEditedUser] = React.useState(undefined);
   const onSubmit = async (values: any) => {
     try {
-      await axios.put(
+      const response = await axios.put(
         `https://jsonplaceholder.typicode.com/users/${values.id}`,
         values
       );
+      setEditedUser(response.data);
+      props.setModalFlag();
       message.success("Form submitted successfully!");
     } catch (error) {
       message.error("Edit was not successful");
@@ -70,7 +73,7 @@ const EditModal = (props: EditModalProps) => {
       >
         <Formik
           initialValues={props.user}
-          validationSchema={validationSchema}
+          validationSchema={editedUser || validationSchema}
           onSubmit={onSubmit}
         >
           {({ handleSubmit, resetForm, dirty }) => (
